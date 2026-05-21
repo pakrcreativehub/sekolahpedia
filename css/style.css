@@ -161,5 +161,20 @@ display:none;
 transform:translateY(-12px) scale(1.02);
 box-shadow:0 20px 40px rgba(0,0,0,0.12);
 }
-
+.wa{
+position:fixed;
+right:20px;
+bottom:20px;
+width:60px;
+height:60px;
+background:#25d366;
+display:flex;
+justify-content:center;
+align-items:center;
+border-radius:50%;
+font-size:30px;
+color:white;
+text-decoration:none;
+z-index:999;
+}
 }
