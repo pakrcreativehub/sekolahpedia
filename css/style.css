@@ -157,5 +157,9 @@ font-size:42px;
 nav{
 display:none;
 }
+  .feature-card:hover{
+transform:translateY(-12px) scale(1.02);
+box-shadow:0 20px 40px rgba(0,0,0,0.12);
+}
 
 }
