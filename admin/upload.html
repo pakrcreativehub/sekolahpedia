@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Upload Materi</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+
+body{
+background:#f5f7fb;
+font-family:'Poppins',sans-serif;
+}
+
+.upload-container{
+max-width:700px;
+margin:120px auto;
+background:white;
+padding:40px;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.upload-container h1{
+margin-bottom:10px;
+font-size:38px;
+color:#2563eb;
+}
+
+.upload-container p{
+margin-bottom:30px;
+color:#64748b;
+}
+
+.form-group{
+margin-bottom:25px;
+}
+
+label{
+display:block;
+margin-bottom:10px;
+font-weight:600;
+}
+
+input,
+textarea,
+select{
+width:100%;
+padding:16px;
+border:none;
+background:#f1f5f9;
+border-radius:12px;
+font-size:16px;
+outline:none;
+}
+
+textarea{
+height:150px;
+resize:none;
+}
+
+.upload-box{
+border:2px dashed #2563eb;
+padding:40px;
+border-radius:20px;
+text-align:center;
+background:#eff6ff;
+cursor:pointer;
+transition:0.3s;
+}
+
+.upload-box:hover{
+background:#dbeafe;
+}
+
+.upload-box input{
+display:none;
+}
+
+.upload-btn{
+width:100%;
+padding:18px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:15px;
+font-size:17px;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.upload-btn:hover{
+background:#1d4ed8;
+}
+
+.preview{
+margin-top:20px;
+padding:15px;
+background:#f8fafc;
+border-radius:12px;
+display:none;
+}
+
+.success{
+margin-top:20px;
+padding:18px;
+background:#dcfce7;
+color:#166534;
+border-radius:12px;
+display:none;
+font-weight:600;
+}
+
+@media(max-width:768px){
+
+.upload-container{
+margin:100px 20px;
+padding:25px;
+}
+
+.upload-container h1{
+font-size:30px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="upload-container">
+
+<h1>Upload Materi PDF</h1>
+
+<p>
+Upload ebook, modul pembelajaran, atau materi pendidikan untuk siswa.
+</p>
+
+<form id="uploadForm">
+
+<div class="form-group">
+<label>Judul Materi</label>
+<input type="text" placeholder="Contoh: Matematika Kelas 10">
+</div>
+
+<div class="form-group">
+<label>Kategori</label>
+
+<select>
+<option>Matematika</option>
+<option>Bahasa Inggris</option>
+<option>IPA</option>
+<option>IPS</option>
+<option>Teknologi</option>
+<option>Bahasa Indonesia</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Deskripsi Materi</label>
+
+<textarea placeholder="Tulis deskripsi materi pembelajaran..."></textarea>
+</div>
+
+<div class="form-group">
+
+<label>Upload File PDF</label>
+
+<div class="upload-box" onclick="document.getElementById('fileInput').click()">
+
+<input type="file" id="fileInput" accept=".pdf">
+
+<h3>📄 Klik Untuk Upload PDF</h3>
+
+<p>Maksimal ukuran file 20MB</p>
+
+</div>
+
+<div class="preview" id="preview"></div>
+
+</div>
+
+<button type="submit" class="upload-btn">
+Upload Materi
+</button>
+
+<div class="success" id="success">
+✅ Materi berhasil diupload!
+</div>
+
+</form>
+
+</div>
+
+<script>
+
+const fileInput = document.getElementById("fileInput");
+const preview = document.getElementById("preview");
+const form = document.getElementById("uploadForm");
+const success = document.getElementById("success");
+
+fileInput.addEventListener("change", ()=>{
+
+const file = fileInput.files[0];
+
+if(file){
+
+preview.style.display = "block";
+
+preview.innerHTML = `
+<strong>File:</strong> ${file.name}<br>
+<strong>Ukuran:</strong> ${(file.size / 1024 / 1024).toFixed(2)} MB
+`;
+
+}
+
+});
+
+form.addEventListener("submit",(e)=>{
+
+e.preventDefault();
+
+success.style.display = "block";
+
+setTimeout(()=>{
+success.style.display = "none";
+},3000);
+
+});
+
+</script>
+
+</body>
+</html>
