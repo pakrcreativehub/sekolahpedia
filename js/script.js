@@ -1,19 +1,161 @@
-window.onload = ()=>{
-document.getElementById("loader").style.display="none";
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
-const darkMode = document.getElementById("darkMode");
-
-if(darkMode){
-darkMode.onclick = ()=>{
-document.body.classList.toggle("dark");
-}
+body{
+background:#f5f7fb;
+color:#111827;
+overflow-x:hidden;
 }
 
-const search = document.getElementById("search");
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:20px 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(15px);
+z-index:1000;
+}
 
-if(search){
-search.addEventListener("keyup",()=>{
-console.log(search.value)
-})
+.logo{
+font-size:32px;
+font-weight:800;
+color:#2563eb;
+}
+
+nav a{
+text-decoration:none;
+margin-left:25px;
+color:#111;
+font-weight:600;
+}
+
+.hero{
+min-height:100vh;
+padding:150px 7%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:50px;
+flex-wrap:wrap;
+background:linear-gradient(135deg,#2563eb,#38bdf8);
+color:white;
+}
+
+.hero-left{
+flex:1;
+min-width:300px;
+}
+
+.hero-left h1{
+font-size:65px;
+line-height:1.1;
+margin-bottom:20px;
+}
+
+.hero-left p{
+font-size:18px;
+line-height:1.8;
+margin-bottom:30px;
+}
+
+.btn{
+padding:15px 35px;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+display:inline-block;
+}
+
+.btn-primary{
+background:white;
+color:#2563eb;
+}
+
+.hero-right{
+flex:1;
+min-width:300px;
+}
+
+.hero-card{
+background:white;
+padding:40px;
+border-radius:25px;
+color:#111;
+box-shadow:0 15px 40px rgba(0,0,0,0.2);
+}
+
+.hero-card input{
+width:100%;
+padding:18px;
+border:none;
+border-radius:12px;
+background:#f1f5f9;
+margin-top:20px;
+}
+
+section{
+padding:90px 7%;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.feature-card{
+background:white;
+padding:35px;
+border-radius:25px;
+box-shadow:0 10px 25px rgba(0,0,0,0.05);
+transition:0.3s;
+}
+
+.feature-card:hover{
+transform:translateY(-10px);
+}
+
+.stats{
+background:#0f172a;
+color:white;
+}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+text-align:center;
+}
+
+footer{
+background:#020617;
+color:white;
+text-align:center;
+padding:40px;
+}
+
+@media(max-width:768px){
+
+.hero-left h1{
+font-size:42px;
+}
+
+nav{
+display:none;
+}
+
 }
